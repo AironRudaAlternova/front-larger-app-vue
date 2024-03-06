@@ -1,5 +1,21 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { Button } from "@/components/ui/button";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+import { Input } from "@/components/ui/input";
+
+const formSchema = {};
+
+const onSubmit = (values) => {
+  console.log("Form submitted!", values);
+};
 </script>
 
 <template>
@@ -11,7 +27,21 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <h1 class="font-bold bg-green-500">Holas</h1>
+
+  <form @submit="onSubmit">
+    <FormField v-slot="{ componentField }" name="username">
+      <FormItem>
+        <FormLabel>Username</FormLabel>
+        <FormControl>
+          <Input type="text" placeholder="shadcn" v-bind="componentField" />
+        </FormControl>
+        <FormDescription> This is your public display name. </FormDescription>
+        <FormMessage />
+      </FormItem>
+    </FormField>
+    <Button type="submit"> Submit </Button>
+  </form>
 </template>
 
 <style scoped>
