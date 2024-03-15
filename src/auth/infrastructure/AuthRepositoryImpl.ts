@@ -6,7 +6,7 @@ import { supabase } from "@/services";
 
 
 export class AuthRepositoryImpl implements IAuthRepository {
-  constructor(serviceAPI: any) {}
+  constructor() {}
 
   // TODO: Definir tipo obtenido al autenticarse en supabase y agregarlo en el tipo devuelto por la respuesta en la promesa
   async login(SignIn: SignIn): Promise<void | Error> {
@@ -19,6 +19,7 @@ export class AuthRepositoryImpl implements IAuthRepository {
       console.log("Response: ", response);
       return;
     } catch (error) {
+      console.log(error);
       throw new Error("Error while siging in.");
     }
   }

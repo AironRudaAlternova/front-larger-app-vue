@@ -4,7 +4,7 @@ export class UserEmail {
   }
 
   static UserEmailValid(id: string): boolean {
-    const regexExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,30}$/gi;
+    const regexExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     return regexExp.test(id);
   }
 
