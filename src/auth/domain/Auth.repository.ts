@@ -3,6 +3,7 @@ import { SignIn, SignUp } from "./Auth.entity";
 
 export interface IAuthRepository {
   login: (signIn: SignIn) => Promise<void | Error>;
+  loginWithGithub: () => Promise<void | Error>;
   register: (signUp: SignUp) => Promise<User | Error>;
   logout: () => Promise<void>;
 }

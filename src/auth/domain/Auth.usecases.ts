@@ -27,3 +27,11 @@ export class SignInUseCase {
     return this.authRepository.login(signIn);
   }
 }
+
+export class SignInWithGithubUseCase {
+  constructor(private readonly authRepository: IAuthRepository) {}
+
+  execute() {
+    return this.authRepository.loginWithGithub();
+  }
+}

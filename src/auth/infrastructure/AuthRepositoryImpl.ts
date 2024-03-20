@@ -8,7 +8,6 @@ import { supabase } from "@/services";
 export class AuthRepositoryImpl implements IAuthRepository {
   constructor() {}
 
-  // TODO: Definir tipo obtenido al autenticarse en supabase y agregarlo en el tipo devuelto por la respuesta en la promesa
   async login(SignIn: SignIn): Promise<void | Error> {
     try {
       const response = await supabase.auth.signInWithPassword({
@@ -23,10 +22,19 @@ export class AuthRepositoryImpl implements IAuthRepository {
       throw new Error("Error while siging in.");
     }
   }
+
+  async loginWithGithub(): Promise<void | Error> {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+    })
+    console.log(data, error);
+  }
+
   register(SignUp: SignUp): Promise<User | Error> {
     throw new Error("Method not implemented.");
   }
   logout(): Promise<void> {
     throw new Error("Method not implemented.");
   }
+
 }
