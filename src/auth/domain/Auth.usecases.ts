@@ -1,7 +1,7 @@
 import { SignIn, SignUp } from "./Auth.entity";
 import { IAuthRepository } from "./Auth.repository";
 import { UserEmail } from "@/core/user/domain/UserEmail.vo";
-import { Primitives } from "@/core/user/domain/Primitives";
+import { Primitives } from "@/common/domain/Primitives";
 import { UserPassword } from "@/core/user/domain/Password.vo";
 import { Username } from "@/core/user/domain/Username.vo";
 
